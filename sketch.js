@@ -18,7 +18,7 @@ function setup() {
 
   //Continously adjust website size to canvas.
   windowResized();
-  fft = new p5.FFT(0.5, 256);
+  fft = new p5.FFT();
 
   //Play audio.
   audio.loop();
