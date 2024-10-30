@@ -1,105 +1,40 @@
-/* Marcos: I think I made a mistake by making everything a flexbox... */
-
-html{
-    font-family: 'Courier New', Courier, monospace;
-    font-style: normal;
-}
-
-/* ------ Style for Player -------- */
-
-
-canvas {
-    display: fixed;
-}
-
-
-
-/* ------ Style for menu -------- */
-
-.menu {
-    position: fixed;
-
-    /* For some weird reason the background can be seen if this is not set. A fix needs to be checked. */
+body,html {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    min-width: 400px;
+    padding: 60px;
+    background-color: rgb(0,0,0);
+    color: white;
+  }
+  
+  canvas {
+    border: 2px solid rgb(2,2,2);
     width: 100%;
+    height: 100%;
+  }
 
+  .menu{
+    position: fixed;
+    width: 100%;
+    top: 0%;
+    background-color: rgb(212, 201, 201);
+  }
 
+  .menu_button_container{
     display: flex;
 	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: flex-start;
-	align-items: stretch;
-	align-content: flex-start;
-
-    background-color: aqua;
-}
-
-.menu button {
-    border: none;  /* Make button transparent found from: https://stackoverflow.com/questions/57547226/how-to-remove-background-from-button */
-    background: none;
-    cursor: pointer;
-    margin: 0;
-    padding: 20;
-
-    font-size: 20px;
-}
-
-.menu p {
-    font-size: 30px;
-    left: 60%;
-    position: relative;
-}
-
-
-
-/* ------ Style for landing page section -------- */
-
-.landing_page{
-    display: flex;
-	flex-direction: column;
 	flex-wrap: wrap;
 	justify-content: center;
-	align-items: center;
-	align-content: center;
-    
-    background-color: bisque;
+	align-items: stretch;
+	align-content: stretch;
+    height: 50px;
+  }
 
-    height: 700px;
-}
-
-
-.landing_page p{
-    font-size: 80px;
-    text-align: center;
-}
-
-
-.landing_page button {
-    border: none;  /* Make button transparent found from: https://stackoverflow.com/questions/57547226/how-to-remove-background-from-button */
-    cursor: pointer;
-    margin: 0;
-    padding: 0;
-
-    font-size: 40px;
-}
-
-
-
-/* ------ Style for details section -------- */
-
-.details{
-
-    display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: space-evenly;
-	align-items: center;
-	align-content: center;
-
-
-    font-size: 20px;
-}
-
-
-.details h3{
-    text-align: center;
-}
+  .menu_button_container button{
+    margin: 10px
+  }
