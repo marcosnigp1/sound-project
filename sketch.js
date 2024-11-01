@@ -13,7 +13,6 @@ function preload(){
   audio = new loadSound("media/musictest.m4a");
 }
 
-
 function setup() {
   createCanvas(400, 400);
 
@@ -33,15 +32,17 @@ function setup() {
 }
 
 function draw() {
-  background(0,100);
+  background(0,200);
 
-  //Get spectrum and visualize it.
+  //Get spectrum and visualize it. Also, check current song chapter.
   let spectrum = fft.analyze();
   visualizer.display(spectrum);
+  visualizer.check_chapter();
 
   //Update UI values and display them. This is a procedure which needs to be done constantly since it is a fixed position.
   ui.update_values(width*0.30, height*0.80, width*0.40, height*0.01)
   ui.display();
+
 }
 
 
@@ -59,6 +60,16 @@ function mousePressed(){
     let jump_to_time = map(mouseX, ui.position.x, ui.position.x + ui.w, 0,ui.song_time_total);
     audio.jump(jump_to_time);
   }
+
+  //If mouse clicked previous chapter button.
+  if (mouseX > ui.position.x*0.95 && mouseX < ui.position.x*1.15 && mouseY > ui.position.y*1.05 && mouseY < ui.position.y*1.15){
+    ui.jump_to_chapter(-1); 
+  }
+
+  //If mouse clicked next chapter button
+  if (mouseX > ui.position.x*2.15 && mouseX < ui.position.x*2.35 && mouseY > ui.position.y*1.05 && mouseY < ui.position.y*1.15){
+    ui.jump_to_chapter(1); 
+  }
 }
 
 
@@ -72,9 +83,21 @@ function touchStarted(){
     }
   }
 
-  if (mouseX > ui.position.x && mouseX < ui.position.x+ui.w && mouseY > ui.position.y && mouseY < ui.position.y + ui.h){
+  ///If mouse is clicked inside the bar, check current position and then move the song to it.
+  //Note: Y values are increased due to the nature of touch screens. It can not be that precise. 
+  if (mouseX > ui.position.x && mouseX < ui.position.x+ui.w && mouseY > ui.position.y-12 && mouseY < ui.position.y+12 + ui.h){
     let jump_to_time = map(mouseX, ui.position.x, ui.position.x + ui.w, 0,ui.song_time_total);
     audio.jump(jump_to_time);
+  }
+
+  //If mouse clicked previous chapter button.
+  if (mouseX > ui.position.x*0.95 && mouseX < ui.position.x*1.15 && mouseY > ui.position.y*1.05 && mouseY < ui.position.y*1.15){
+    ui.jump_to_chapter(-1); 
+  }
+
+  //If mouse clicked next chapter button
+  if (mouseX > ui.position.x*2.15 && mouseX < ui.position.x*2.35 && mouseY > ui.position.y*1.05 && mouseY < ui.position.y*1.15){
+    ui.jump_to_chapter(1); 
   }
 }
 
