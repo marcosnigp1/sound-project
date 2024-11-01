@@ -2,14 +2,12 @@
 //Sound example taken from the following video: https://www.youtube.com/watch?v=2O3nm0Nvbi4
 
 //Preparing variables for the sound analyzer.
-let song;
-let amplitude;
-let button;
-
-let w;
-
+let audio;
 let fft;
 
+//Interactable UI
+let ui;
+let visualizer;
 
 function preload(){
   audio = new loadSound("media/musictest.m4a");
@@ -23,72 +21,61 @@ function setup() {
   colorMode(HSB);
   angleMode(RADIANS);
   fft = new p5.FFT(0.9, 512);
-
-  w = width / 20; //Not necessary anymore?
+  visualizer = new Visualizer();
 
   //Play audio.
-  audio.loop();
+  //audio.loop();
 
   windowResized(); //Resizes window to fit into different media.
+
+  //Preparing UI
+  ui = new UI();
 }
-
-
 
 function draw() {
   background(0,100);
-  var spectrum = fft.analyze();
-  /* stroke(255); */
+
+  //Get spectrum and visualize it.
+  let spectrum = fft.analyze();
+  visualizer.display(spectrum);
+
+  //Update UI values and display them. This is a procedure which needs to be done constantly since it is a fixed position.
+  ui.update_values(width*0.30, height*0.80, width*0.40, height*0.01)
+  ui.display();
+}
 
 
-  //First half circle
-
-  push();
-  noFill();
-  stroke(255);
-  beginShape();
-  translate(width/2, height/2);
-  for (let i = 0; i<spectrum.length; i++){
-    let angle = map(i, 0, spectrum.length,0,PI);
-    let amplitude = spectrum[i];
-    let r = map(amplitude, 0, 100, 100, 200);
-    let x = r * cos(angle);
-    let y = r * sin(angle);
-    vertex(x,y);
-/*  let y = map(amperes, 0, 256, height, 0);
-    fill(i, 255, 255);
-    rect(i*w, y, w, height-y); */
+function mousePressed(){
+  if (mouseX > ui.position.x*1.52 && mouseX < ui.position.x*1.82 && mouseY > ui.position.y*1.05 && mouseY < ui.position.y*1.15){
+    if (audio.isPlaying()){
+      audio.pause();
+    } else {
+      audio.play();
+    }
   }
-  endShape(CLOSE);
-  pop()
 
-
-  //Second half circle
-
-  push();
-  noFill();
-  stroke(255);
-  beginShape();
-  translate(width/2, height/2);
-  for (let i = 0; i<spectrum.length; i++){
-    let angle = map(i, 0, spectrum.length,0,PI);
-    let amplitude = spectrum[i];
-    let r = map(amplitude, 0, 100, 100, 200);
-    let x = r * cos(angle)*-1;
-    let y = r * sin(angle)*-1;
-    vertex(x,y);
-/*  let y = map(amperes, 0, 256, height, 0);
-    fill(i, 255, 255);
-    rect(i*w, y, w, height-y); */
+  ///If mouse is clicked inside the bar, check current position and then move the song to it.
+  if (mouseX > ui.position.x && mouseX < ui.position.x+ui.w && mouseY > ui.position.y && mouseY < ui.position.y + ui.h){
+    let jump_to_time = map(mouseX, ui.position.x, ui.position.x + ui.w, 0,ui.song_time_total);
+    audio.jump(jump_to_time);
   }
-  endShape(CLOSE);
-  pop()
+}
 
 
-  //Testing text.
-  push();
-  fill(255);
-  text("This is a test", width*0.82, height*0.40);
-  pop();
+//Code for phone, since touchscreens are registered differently.
+function touchStarted(){
+  if (mouseX > ui.position.x*1.52 && mouseX < ui.position.x*1.82 && mouseY > ui.position.y*1.05 && mouseY < ui.position.y*1.15){
+    if (audio.isPlaying()){
+      audio.pause();
+    } else {
+      audio.play();
+    }
+  }
+
+  if (mouseX > ui.position.x && mouseX < ui.position.x+ui.w && mouseY > ui.position.y && mouseY < ui.position.y + ui.h){
+    let jump_to_time = map(mouseX, ui.position.x, ui.position.x + ui.w, 0,ui.song_time_total);
+    audio.jump(jump_to_time);
+  }
 }
 
 
@@ -102,28 +89,3 @@ function windowResized() {
     factdiv = 1920;
   }
 }
-
-
-function mousePressed(){
-  if (audio.isPlaying()) {
-    // .isPlaying() returns a boolean
-    audio.stop();
-    background(255, 0, 0);
-  } else {
-    audio.play();
-    background(0, 255, 0);
-  }
-}
-
-//Code for phone, since touchpad is registered differently.
-function touchStarted(){
-  if (audio.isPlaying()) {
-    // .isPlaying() returns a boolean
-    audio.stop();
-    background(255, 0, 0);
-  } else {
-    audio.play();
-    background(0, 255, 0);
-  }
-}
-
