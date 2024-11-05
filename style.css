@@ -28,13 +28,13 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: #113e87;
   text-align: center;
 }
 
 /* content */
 .overlay {
-  background: rgba(186, 226, 255, 0.651);
+  background: rgba(255, 253, 204, 0.712);
   padding: 10px;
   border-radius: 8px;
   max-width: 600px;
