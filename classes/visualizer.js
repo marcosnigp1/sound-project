@@ -23,7 +23,7 @@ class Visualizer {
         if (ui.play == 0) {
           stroke(200);
         } else {
-          stroke(30);
+          stroke(96, 139, 193);
         }
 
         beginShape();
@@ -69,7 +69,7 @@ class Visualizer {
         if (ui.play == 0) {
           stroke(200);
         } else {
-          stroke(30);
+          stroke(82, 177, 83);
         }
 
         beginShape();
@@ -154,7 +154,13 @@ class Visualizer {
         if (ui.play == 0) {
           stroke(200);
         } else {
-          stroke(30);
+          if (ui.song_time_left < 78) {
+            stroke(30);
+          } else if (ui.song_time_left < 78) {
+            stroke(226, 65, 65);
+          } else if (ui.song_time_left < 90) {
+            stroke(82, 177, 83);
+          }
         }
 
         ////////////////////////////////////   Main Circle   ///////////////////////////////////////////////
@@ -179,20 +185,6 @@ class Visualizer {
           let r = map(amplitude, 0, 100, 50, 100);
           let x = r * cos(angle) * -1;
           let y = r * sin(angle) * -1;
-          vertex(x, y);
-        }
-        endShape(CLOSE);
-
-        //////////////////////////////////////////////////////////////////////////////////////
-
-        ////////////////////////////////////   Plus sign   ///////////////////////////////////////////////
-        //First half
-        beginShape();
-        for (let i = 0; i < spectrum.length; i++) {
-          let amplitude = spectrum[i];
-          let r = map(amplitude, 0, 100, 50, 100);
-          let x = r * 10;
-          let y = r * 10;
           vertex(x, y);
         }
         endShape(CLOSE);

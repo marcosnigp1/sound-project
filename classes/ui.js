@@ -36,11 +36,12 @@ class UI {
     );
 
     //Sub Title
-    textSize(15);
+    textSize(30);
+    noFill();
     checkCurrentWindowSize(2);
     text(
-      "A Project by Marcos, Haroon, Violetta and Ghadir",
-      width * (0.41 - checkCurrentWindowSize(2)),
+      "   A Project by Marcos, \nHaroon, Violetta and Ghadir",
+      width * (0.42 - checkCurrentWindowSize(2)),
       height * 0.19
     );
 
@@ -96,15 +97,15 @@ class UI {
     noFill();
 
     //Time Remaining.
-    textSize(15);
+    textSize(18);
     text(
-      this.song_time_left + "s",
-      this.position.x * 0.74,
+      this.song_time_left + " s",
+      this.position.x * 0.723,
       this.position.y * 1.013
     );
 
     text(
-      this.song_time_total + "s",
+      this.song_time_total + " s",
       this.position.x * 2.37,
       this.position.y * 1.013
     );
@@ -113,7 +114,7 @@ class UI {
     checkCurrentWindowSize(3);
     text(
       "Scene 1: Students talking",
-      width * (0.45 - checkCurrentWindowSize(3)),
+      width * (0.44 - checkCurrentWindowSize(3)),
       this.position.y * 1.05
     );
 

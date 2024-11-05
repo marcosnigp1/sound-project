@@ -106,10 +106,10 @@ function mousePressed() {
 //Code for phone, since touchscreens are registered differently.
 function touchStarted() {
   if (
-    mouseX > ui.position.x * 1.52 &&
-    mouseX < ui.position.x * 1.82 &&
-    mouseY > ui.position.y * 1.05 &&
-    mouseY < ui.position.y * 1.15
+    mouseX > ui.position.x * 1.55 &&
+    mouseX < ui.position.x * 1.79 &&
+    mouseY > ui.position.y * 0.87 &&
+    mouseY < ui.position.y * 0.94
   ) {
     if (audio.isPlaying()) {
       audio.pause();
@@ -119,12 +119,11 @@ function touchStarted() {
   }
 
   ///If mouse is clicked inside the bar, check current position and then move the song to it.
-  //Note: Y values are increased due to the nature of touch screens. It can not be that precise.
   if (
     mouseX > ui.position.x &&
     mouseX < ui.position.x + ui.w &&
-    mouseY > ui.position.y - 12 &&
-    mouseY < ui.position.y + 12 + ui.h
+    mouseY > ui.position.y &&
+    mouseY < ui.position.y + ui.h
   ) {
     let jump_to_time = map(
       mouseX,
@@ -138,20 +137,20 @@ function touchStarted() {
 
   //If mouse clicked previous chapter button.
   if (
-    mouseX > ui.position.x * 0.95 &&
-    mouseX < ui.position.x * 1.15 &&
-    mouseY > ui.position.y * 1.05 &&
-    mouseY < ui.position.y * 1.15
+    mouseX > ui.position.x * 1.26 &&
+    mouseX < ui.position.x * 1.35 &&
+    mouseY > ui.position.y * 0.87 &&
+    mouseY < ui.position.y * 0.93
   ) {
     ui.jump_to_chapter(-1);
   }
 
   //If mouse clicked next chapter button
   if (
-    mouseX > ui.position.x * 2.15 &&
-    mouseX < ui.position.x * 2.35 &&
-    mouseY > ui.position.y * 1.05 &&
-    mouseY < ui.position.y * 1.15
+    mouseX > ui.position.x * 1.98 &&
+    mouseX < ui.position.x * 2.07 &&
+    mouseY > ui.position.y * 0.87 &&
+    mouseY < ui.position.y * 0.93
   ) {
     ui.jump_to_chapter(1);
   }
@@ -170,13 +169,13 @@ function checkCurrentWindowSize(value) {
     }
 
     if (value == 2) {
-      textSize(12);
+      textSize(18);
       reduce = 0.2;
       return reduce;
     }
 
     if (value == 3) {
-      textSize(10);
+      textSize(15);
       reduce = 0.1;
       return reduce;
     }
@@ -188,13 +187,13 @@ function checkCurrentWindowSize(value) {
     }
 
     if (value == 2) {
-      textSize(15);
+      textSize(20);
       reduce = 0;
       return reduce;
     }
 
     if (value == 3) {
-      textSize(15);
+      textSize(20);
       reduce = 0;
       return reduce;
     }
