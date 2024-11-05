@@ -1,29 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/p5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/addons/p5.sound.min.js"></script>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Class Harmony</title>
 
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css" />
 
-<body> 
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Permanent+Marker&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
+  <body>
     <!-- Menu -->
 
     <div class="menu">
-        <div class="menu_button_container">
-            <button onclick="window.location.href='index.html'">Audio</button>  <!-- https://stackoverflow.com/questions/16562577/how-can-i-make-a-button-redirect-my-page-to-another-page -->
-            <button onclick="window.location.href='about.html'">About</button>
-            <button onclick="window.location.href='behindthescenes.html'">Behind the scenes</button>
-        </div>
+      <div class="menu_button_container">
+        <button onclick="window.location.href='index.html'">Home</button>
+        <button onclick="window.location.href='project.html'">Audio</button>
+        <!-- https://stackoverflow.com/questions/16562577/how-can-i-make-a-button-redirect-my-page-to-another-page -->
+        <button onclick="window.location.href='about.html'">About</button>
+        <button onclick="window.location.href='behindthescenes.html'">
+          Behind the scenes
+        </button>
+      </div>
     </div>
 
-</body>
-
-
+    <!-- Video Section -->
+    <div id="video" class="video-section">
+      <h1 class="video-title">Behind The Scenes</h1>
+      <video id="myVideo" class="video-player" controls>
+        <source src="media/Behind The Scenes.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </body>
 </html>
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: "Permanent Marker", cursive;
+    background-color: #d5e6f583;
+    color: #333;
+    line-height: 1.6;
+  }
+
+  /* Video Section styling */
+  .video-section {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .video-title {
+    font-size: 42px;
+    margin-bottom: 20px;
+  }
+
+  .video-player {
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+</style>
