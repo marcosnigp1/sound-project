@@ -1,11 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/addons/p5.sound.min.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Permanent+Marker&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Class Harmony</title>
   </head>
+
   <body>
+    <!-- Menu -->
+    <div class="menu">
+      <div class="menu_button_container">
+        <button onclick="window.location.href='index.html'">Home</button>
+        <button onclick="window.location.href='project.html'">Audio</button>
+        <button onclick="window.location.href='about.html'">About</button>
+        <button onclick="window.location.href='behindthescenes.html'">
+          Behind the scenes
+        </button>
+      </div>
+    </div>
+
     <!-- Main sketch -->
     <script src="sketch.js"></script>
     <script src="classes/ui.js"></script>
