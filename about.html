@@ -1,29 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/p5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/addons/p5.sound.min.js"></script>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Class Harmony</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About</title>
 
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css" />
 
-<body> 
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Permanent+Marker&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
+  <body>
     <!-- Menu -->
-
     <div class="menu">
-        <div class="menu_button_container">
-            <button onclick="window.location.href='index.html'">Audio</button>  <!-- https://stackoverflow.com/questions/16562577/how-can-i-make-a-button-redirect-my-page-to-another-page -->
-            <button onclick="window.location.href='about.html'">About</button>
-            <button onclick="window.location.href='behindthescenes.html'">Behind the scenes</button>
-        </div>
+      <div class="menu_button_container">
+        <button onclick="window.location.href='index.html'">Home</button>
+        <button onclick="window.location.href='project.html'">Audio</button>
+        <button onclick="window.location.href='about.html'">About</button>
+        <button onclick="window.location.href='behindthescenes.html'">
+          Behind the scenes
+        </button>
+      </div>
     </div>
 
-</body>
+    <!-- Team Section -->
+    <section class="about-us">
+      <h1 class="team-title">Our Team</h1>
+      <!-- Added class for styling -->
 
+      <div class="row">
+        <div class="column">
+          <div class="card">
+            <img
+              src="media/GroupMember-Marcos.jpg"
+              alt="Marcos"
+              style="width: 100%"
+            />
+            <div class="container">
+              <h2>Marcos</h2>
+              <p>
+                I am Marcos Hernández, an interactive media student who is
+                passionate about coding and experimenting with computers. Since
+                a kid, I always found a fascination with technology and its
+                capabilities; similar to a big landscape, it felt endless and
+                refreshing.
+              </p>
+            </div>
+          </div>
+        </div>
 
+        <div class="column">
+          <div class="card">
+            <img
+              src="media/GroupMember-Ghadir.jpg"
+              alt="Ghadir"
+              style="width: 100%"
+            />
+            <div class="container">
+              <h2>Ghadir</h2>
+              <p>Hi, I am Ghadir, a junior majoring in interactive media!</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="card">
+            <img
+              src="media/GroupMember-Violetta.jpg"
+              alt="Violetta"
+              style="width: 100%"
+            />
+            <div class="container">
+              <h2>Violetta</h2>
+              <p>
+                Hi, I am Violetta! I am a junior majoring in Media Culture
+                Communication and Philosophy :)
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="card">
+            <img
+              src="media/GroupMember-Haroon.jpg"
+              alt="Haroon"
+              style="width: 100%"
+            />
+            <div class="container">
+              <h2>Haroon</h2>
+              <p>
+                Hey! I'm Haroon :) I'm a sophomore at NYUAD, majoring in
+                Computer Science
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
 </html>
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: "Permanent Marker", cursive;
+    height: 100vh;
+    background-color: #d5e6f583;
+    font-weight: 10;
+  }
+
+  /* Title styling */
+  .team-title {
+    margin-top: 70px;
+    text-align: center;
+    font-size: 42px;
+    font-weight: 10;
+  }
+
+  /* Flex container */
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  /* Ensure columns are the same size */
+  .column {
+    flex: 1 1 22%; /* Flex-grow, flex-shrink, and flex-basis */
+    max-width: 22%; /* Controls maximum width per column */
+    margin-bottom: 16px;
+    box-sizing: border-box;
+  }
+
+  /* Responsive adjustment for smaller screens */
+  @media screen and (max-width: 650px) {
+    .column {
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
+  }
+
+  /* Card styling */
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    background-color: #f3f3e0;
+    height: 100%;
+  }
+
+  /* Image styling */
+  .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  /* Text container styling */
+  .container {
+    padding: 16px;
+    text-align: center;
+  }
+</style>
