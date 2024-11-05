@@ -164,7 +164,7 @@ function checkCurrentWindowSize(value) {
   if (windowWidth < 718) {
     if (value == 1) {
       textSize(30);
-      reduce = 0.19;
+      reduce = 0.17;
       return reduce;
     }
 
@@ -175,7 +175,25 @@ function checkCurrentWindowSize(value) {
     }
 
     if (value == 3) {
-      textSize(15);
+      textSize(17);
+      reduce = 0.15;
+      return reduce;
+    }
+  } else if (windowWidth < 1200) {
+    if (value == 1) {
+      textSize(40);
+      reduce = 0.1;
+      return reduce;
+    }
+
+    if (value == 2) {
+      textSize(20);
+      reduce = 0.1;
+      return reduce;
+    }
+
+    if (value == 3) {
+      textSize(20);
       reduce = 0.1;
       return reduce;
     }

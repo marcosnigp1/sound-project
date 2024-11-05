@@ -16,6 +16,7 @@ class UI {
 
     this.play = 0;
     this.chapter = 0;
+    this.chapter_text = " ";
   }
 
   display() {
@@ -31,7 +32,7 @@ class UI {
     checkCurrentWindowSize(1);
     text(
       "Class Harmony",
-      width * (0.42 - checkCurrentWindowSize(1)),
+      width * (0.43 - checkCurrentWindowSize(1)),
       height * 0.15
     );
 
@@ -41,7 +42,7 @@ class UI {
     checkCurrentWindowSize(2);
     text(
       "   A Project by Marcos, \nHaroon, Violetta and Ghadir",
-      width * (0.42 - checkCurrentWindowSize(2)),
+      width * (0.43 - checkCurrentWindowSize(2)),
       height * 0.19
     );
 
@@ -113,7 +114,7 @@ class UI {
     //Current chapter.
     checkCurrentWindowSize(3);
     text(
-      "Scene 1: Students talking",
+      this.chapter_text,
       width * (0.44 - checkCurrentWindowSize(3)),
       this.position.y * 1.05
     );
@@ -176,7 +177,7 @@ class UI {
         this.chapter -= 1;
       }
     } else if (value == 1) {
-      if (this.chapter == 5) {
+      if (this.chapter == 3) {
         //Do nothing.
       } else {
         this.chapter += 1;
@@ -184,30 +185,20 @@ class UI {
     }
 
     //Jump to the specified chapter with the help of a switch statement.
-    //Note: The total amount of the song needs to be divided by five.
-
     switch (this.chapter) {
       case 0:
         audio.jump(0);
         break;
 
       case 1:
-        audio.jump((this.song_time_total / 5) * 1);
+        audio.jump(61);
         break;
 
       case 2:
-        audio.jump((this.song_time_total / 5) * 2);
+        audio.jump(129);
         break;
 
       case 3:
-        audio.jump((this.song_time_total / 5) * 3);
-        break;
-
-      case 4:
-        audio.jump((this.song_time_total / 5) * 4);
-        break;
-
-      case 5:
         audio.jump((this.song_time_total / 5) * 4.9); //It is multiplied by 4.90 since it can go out of range.
         break;
 

@@ -17,7 +17,8 @@ class Visualizer {
         (ui.song_time_left > 9 && ui.song_time_left < 11) ||
         (ui.song_time_left >= 20 && ui.song_time_left < 26) ||
         (ui.song_time_left >= 31 && ui.song_time_left < 49) ||
-        (ui.song_time_left >= 53 && ui.song_time_left < 56)
+        (ui.song_time_left >= 53 && ui.song_time_left < 56) ||
+        (ui.song_time_left >= 142 && ui.song_time_left < 146)
       ) {
         //Greyed out if the sound is not playing.
         if (ui.play == 0) {
@@ -107,7 +108,8 @@ class Visualizer {
       //Only play in these specific time stamps (in seconds).
       if (
         (ui.song_time_left > 14 && ui.song_time_left < 20) ||
-        (ui.song_time_left >= 48 && ui.song_time_left < 53)
+        (ui.song_time_left >= 48 && ui.song_time_left < 53) ||
+        (ui.song_time_left >= 140 && ui.song_time_left < 142)
       ) {
         //Greyed out if the sound is not playing.
         if (ui.play == 0) {
@@ -154,12 +156,27 @@ class Visualizer {
         if (ui.play == 0) {
           stroke(200);
         } else {
-          if (ui.song_time_left < 78) {
+          if (ui.song_time_left < 65) {
             stroke(30);
+            strokeWeight(1);
           } else if (ui.song_time_left < 78) {
             stroke(226, 65, 65);
+            strokeWeight(3);
           } else if (ui.song_time_left < 90) {
             stroke(82, 177, 83);
+            strokeWeight(5);
+          } else if (ui.song_time_left < 103) {
+            stroke(96, 139, 193);
+            strokeWeight(8);
+          } else if (ui.song_time_left < 110) {
+            stroke(30);
+            strokeWeight(0.5);
+          } else if (ui.song_time_left < 126) {
+            stroke(20);
+            strokeWeight(1);
+          } else if (ui.song_time_left < 129) {
+            stroke(10);
+            strokeWeight(5);
           }
         }
 
@@ -265,10 +282,16 @@ class Visualizer {
     //I added specific values to avoid further issues.
     if (ui.song_time_left < 61) {
       this.mode = 0;
-    } else if (ui.song_time_left < 134) {
+      ui.chapter_text = "Scene 1: Students talking";
+    } else if (ui.song_time_left < 129) {
       this.mode = 1;
+      ui.chapter_text = "Scene 2: Harmony starts";
     } else if (ui.song_time_left < 140) {
+      this.mode = 2;
+      ui.chapter_text = "Scene 3: Class has started";
+    } else if (ui.song_time_left < 149) {
       this.mode = 0;
+      ui.chapter_text = "Scene 3: Class has started";
     }
   }
 }
