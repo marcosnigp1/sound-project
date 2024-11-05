@@ -6,18 +6,25 @@
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>I n de</title>
+    <title>Class Harmony</title>
 
     <link rel="stylesheet" href="style.css" />
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Permanent+Marker&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
     <!-- Menu -->
-
     <div class="menu">
       <div class="menu_button_container">
-        <button onclick="window.location.href='index.html'">Audio</button>
-        <!-- https://stackoverflow.com/questions/16562577/how-can-i-make-a-button-redirect-my-page-to-another-page -->
+        <button onclick="window.location.href='index.html'">Home</button>
+        <button onclick="window.location.href='project.html'">Audio</button>
         <button onclick="window.location.href='about.html'">About</button>
         <button onclick="window.location.href='behindthescenes.html'">
           Behind the scenes
@@ -25,26 +32,25 @@
       </div>
     </div>
 
-    <!-- Landing page -->
+    <!-- Centered content over background image -->
+    <div class="background">
+      <div class="overlay">
+        <h1>Class Harmony</h1>
+        <p>
+          Music is everywhere. This is an interactive sound story that dives
+          into the everyday chaos of a school morning, a scene familiar to
+          anyone who's ever been caught unprepared. Start your journey and
+          capture the sounds and rhythms of a moment we’ve all lived now.
+        </p>
 
-    <!--     <div class="landing_page">
-        <p>Big image goes here</p>
-        <button>Button</button>
-    </div> -->
-
-    <!-- Details -->
-    <!--   <div class="details">
-
-        <h3>What is this project?</h3>
-
-        <div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit ad provident itaque atque praesentium saepe voluptatum cumque. Reiciendis aspernatur laudantium delectus eveniet, perferendis rem ut odit impedit, at blanditiis doloribus?</p>
-        </div>
-
-        <div>
-            <p>An image here perhaps?</p>
-        </div>
-
-    </div> -->
+        <!-- Start Button Image with Link -->
+        <img
+          src="https://www.nicepng.com/png/detail/110-1108890_start-button-game-start-button-png.png"
+          alt="Start Button"
+          class="start-button"
+          onclick="window.location.href='project.html'"
+        />
+      </div>
+    </div>
   </body>
 </html>
